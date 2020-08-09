@@ -1,7 +1,7 @@
 # Angular-Forms
 #### This repository contains the Angular-Forms code as TDF(Template-Driven-Forms) and RF(Reactive-Forms) with a Server.
 
-| [x] Template-Driven-Forms | [x] Reactive-Forms |
+| - [x] Template-Driven-Forms | - [x] Reactive-Forms |
 | ------------------------- | ------------------ |
 | This contains all such operations coded: | This contains all such operations coded: |
 | Create form template | Create form template |
