@@ -11,14 +11,14 @@
 - Post the form data to a server
 - Receive the response
 - Handle any error
-
+<br />
 - [X] Reactive-Forms
 > This contains all such operations coded:
 - Create form template
 - Create form Model
 - Manage Values
 - FormBuilder Service
-- Simple | Custom | Cross-Field | Conditional --> Validations
+- Simple | Custom | Cross-Field | Conditional => Validations
 - Dynamically add form controls
 - Post the form data to a server
 - Handle any error
