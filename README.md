@@ -11,7 +11,7 @@
 - Post the form data to a server
 - Receive the response
 - Handle any error
-
+\
 - [X] Reactive-Forms
 > This contains all such operations coded:
 - Create form template
