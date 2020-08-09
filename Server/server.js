@@ -16,7 +16,8 @@ app.get('/', function(req, res){
 
 app.post('/enroll', function(req, res){
     console.log(req.body);
-    res.status(401).send({"message": "Data received"});
+    res.status(200).send({"message": "Data received"}); //FOR SUBMITTING DATA TO SERVER
+    // res.status(401).send({"message": "Data received"}); //FOR CHECKING FOR ERROR HANDLING WECHANGE 200 TO 401
 })
 
 app.listen(PORT, function(){
