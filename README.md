@@ -12,8 +12,6 @@
 - Receive the response
 - Handle any error
 
-__
-
 
 - [X] Reactive-Forms
 > This contains all such operations coded:
