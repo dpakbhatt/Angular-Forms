@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <h2>Registration Form</h2>
+  <div class="alert alert-danger" *ngIf="errorMsg">
+    {{ errorMsg }}
+  </div>
+  <form [formGroup]="registrationForm" *ngIf="!submitted" (ngSubmit)="onSubmit()">
+    {{ registrationForm.value | json }}
+    <div class="form-group">
+      <label>Username</label>
+      <input [class.is-invalid]="userName.invalid && userName.touched" formControlName="userName" type="text" class="form-control">
+      <div *ngIf="userName.invalid && userName.touched">
+        <small *ngIf="userName.errors?.required" class="text-danger">Username is required.</small>
+        <small *ngIf="userName.errors?.minlength" class="text-danger">Username must be of atleast 3 characters</small>
+        <small *ngIf="userName.errors?.forbiddenName" class="text-danger">{{userName.errors?.forbiddenName.value}} Username not allowed</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <button type="button" class="btn btn-secondary btn-sm m-2" (click)="addAlternateEmail()">Add Email</button>
+      <input [class.is_invalid]="email.invalid && email.touched" type="text" formControlName="email" class="form-control">
+      <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required</small>
+      <div formArrayName="alternateEmails" *ngFor="let email of alternateEmails.controls; let i=index">
+        <input type="text" class="form-control my-1" [formControlName]="i">
+      </div> 
+    </div>
+
+    <div class="form-check mb-3">
+      <input class="form-check-input" formControlName="subscribe" type="checkbox">
+      <label class="form-check-label">
+        Send me promotional offers
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input formControlName="password" type="password" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Confirm Password</label>
+      <input [class.is-invalid]="registrationForm.errors?.misMatch" formControlName="confirmPassword" type="password" class="form-control">
+      <small class="text-danger" *ngIf="registrationForm.errors?.misMatch">Password do not match</small>
+    </div>
+
+    <div formGroupName="address">
+      <div class="form-group">
+        <label>City</label>
+        <input formControlName="city" type="text" class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label>State</label>
+        <input formControlName="state" type="text" class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label>Postal Code</label>
+        <input formControlName="postalCode" type="text" class="form-control">
+      </div>
+    </div>
+
+    <button [disabled]='!registrationForm.valid' class="btn btn-primary" value="submit">Register</button>
+    <button (click)="loadApidata()" class="btn btn-secondary ml-2" type="button">Load API Data</button>
+  </form>
+</div>
